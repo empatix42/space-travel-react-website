@@ -1,0 +1,129 @@
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  margin-top: 40px;
+  padding-left: 55px;
+}
+.header-content {
+  display: flex;
+  align-items: center;
+}
+.separator {
+  position: absolute;
+  top: 50%;
+  left: 12%;
+  width: 33vw;
+  border-top: 1px solid #ffffff48;
+  z-index: 1;
+}
+.navbar ul {
+  display: flex;
+  height: 11vh;
+  width: 58vw;
+  background-color: rgba(255, 255, 255, 4%);
+  display: flex;
+  backdrop-filter: blur(40px);
+  padding-left: 17%;
+  padding-right: 1vw;
+  gap: 3.2vw;
+}
+
+.navbar a.active {
+  padding-top: 3px;
+  border-bottom: 3px solid white;
+}
+.navbar a span {
+  font-weight: bold;
+  margin-right: 0.9vw;
+}
+.navbar a:not(.active)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: #ffffff3f;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.1s ease-out;
+}
+.navbar a:not(.active):hover::after {
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+.header-content img {
+  animation: logo-spin 10s linear infinite;
+}
+
+@media only screen and (max-width: 1023px) {
+  header {
+    margin-top: 0;
+  }
+  .navbar ul {
+    padding-left: 13%;
+    gap: 4vw;
+    height: 10vh;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  header {
+    padding-left: 7vw;
+    padding-top: 20px;
+  }
+  .header-content img {
+    max-width: 40px;
+  }
+  .navbar-mobile {
+    visibility: hidden;
+    opacity: 0;
+    z-index: 2;
+  }
+  .navbar-mobile ul {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 65vw;
+    gap: 5vh;
+    flex-direction: column;
+    padding-right: 0;
+    padding-left: 10vw;
+    padding-top: 20vh;
+  }
+  .navbar a.active {
+    padding-top: 0;
+    border-bottom: 0;
+    border-right: 3px solid white;
+  }
+  .navbar-visible {
+    visibility: visible;
+    opacity: 1;
+    transition: all 50ms ease;
+  }
+  .navbar a:not(.active):hover::after {
+    height: 0;
+    width: 0;
+  }
+  .menu-icon {
+    cursor: pointer;
+    background: none;
+    border: none;
+    position: absolute;
+    right: 7vw;
+    z-index: 3;
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
